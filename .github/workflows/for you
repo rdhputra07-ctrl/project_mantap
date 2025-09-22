@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Aku Sayang Kamu</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #ff9a9e, #fecfef);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #d6336c;
+    }
+
+    h1 {
+      font-size: 50px;
+      color: #ff4d6d;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    p {
+      font-size: 24px;
+      margin-top: 20px;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 24px;
+      color: red;
+      opacity: 0.8;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.8) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>❤️ Aku Sayang Kamu ❤️</h1>
+  <p>halo <br> aku ridho saebenernya</p>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      
+      // posisi acak
+      heart.style.left = Math.random() * 100 + "vw";
+      
+      // durasi animasi acak
+      const duration = 4 + Math.random() * 3;
+      heart.style.animationDuration = duration + "s";
+
+      // ukuran acak
+      const size = 20 + Math.random() * 30;
+      heart.style.fontSize = size + "px";
+
+      document.body.appendChild(heart);
+
+      // hapus setelah animasi selesai
+      setTimeout(() => {
+        heart.remove();
+      }, duration * 1000);
+    }
+
+    setInterval(createHeart, 500); // setiap 0.5 detik muncul love baru
+  </script>
+</body>
+</html>
